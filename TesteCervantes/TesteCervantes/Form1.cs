@@ -86,7 +86,8 @@ namespace TesteCervantes
                     }
 
                     MessageBox.Show("Usuário criado com sucesso!");
-                    RegistrarLog("CREATE", codUser, nameText.Text);
+                    nameText.Clear();
+                    codText.Clear();
                     registerTable.Refresh();
                 }
             }
@@ -125,11 +126,67 @@ namespace TesteCervantes
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            double codUser;
-            double.TryParse(codText.Text, out codUser);
             if (string.IsNullOrWhiteSpace(codText.Text))
             {
                 MessageBox.Show("Por favor, informe o código do usuário.");
+                return;
+            }
+
+            if (!double.TryParse(codText.Text, out double codUser))
+            {
+                MessageBox.Show("Código do usuário inválido.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(nameText.Text))
+            {
+                MessageBox.Show("Por favor, informe o nome do usuário para atualizar.");
+                return;
+            }
+
+            using (var connection = Connection.getConnection())
+            {
+                connection.Open();
+                string checkQuery = "SELECT COUNT(*) FROM cadastros WHERE coduser = @coduser";
+                using (var checkCmd = new NpgsqlCommand(checkQuery, connection))
+                {
+                    checkCmd.Parameters.AddWithValue("@coduser", codUser);
+                    long count = (long)checkCmd.ExecuteScalar();
+
+                    if (count == 0)
+                    {
+                        MessageBox.Show("Usuário não encontrado no banco de dados.");
+                        return;
+                    }
+                }
+                string updateQuery = "UPDATE cadastros SET name = @name WHERE coduser = @coduser";
+                using (var updateCmd = new NpgsqlCommand(updateQuery, connection))
+                {
+                    updateCmd.Parameters.AddWithValue("@coduser", codUser);
+                    updateCmd.Parameters.AddWithValue("@name", nameText.Text);
+                    updateCmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Usuário atualizado com sucesso!");
+                nameText.Clear();
+                codText.Clear();
+                registerTable.Refresh();
+            }
+        }
+
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            double.TryParse(codText.Text, out double codUser);
+
+            if (string.IsNullOrWhiteSpace(codText.Text))
+            {
+                MessageBox.Show("Por favor, informe o código do usuário para deletar.");
+                return;
+            }
+            else if(codUser <=0)
+            {
+                    MessageBox.Show("Código inváLido.");
                 return;
             }
             else
@@ -137,40 +194,32 @@ namespace TesteCervantes
                 using (var connection = Connection.getConnection())
                 {
                     connection.Open();
-                    string query = "UPDATE cadastros SET name = @name WHERE coduser = @coduser";
+                    string checkQuery = "SELECT COUNT(*) FROM cadastros WHERE coduser = @coduser";
+                    using (var checkCmd = new NpgsqlCommand(checkQuery, connection))
+                    {
+                        checkCmd.Parameters.AddWithValue("@coduser", codUser);
+                        long count = (long)checkCmd.ExecuteScalar();
+
+                        if (count == 0)
+                        {
+                            MessageBox.Show("Usuário não encontrado no banco de dados.");
+                            return;
+                        }
+                    }
+                    string query = "DELETE FROM cadastros WHERE coduser = @coduser";
                     using (var command = new NpgsqlCommand(query, connection))
                     {
+
                         command.Parameters.AddWithValue("@coduser", codUser);
-                        command.Parameters.AddWithValue("@name", nameText.Text);
                         command.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Usuário atualizado com sucesso!");
-                    RegistrarLog("UPDATE", codUser, nameText.Text);
+
+                    MessageBox.Show("Usuário deletado com sucesso!");
+                    nameText.Clear();
+                    codText.Clear();
                     registerTable.Refresh();
+
                 }
-            }
-                
-        }
-
-        private void deleteButton_Click(object sender, EventArgs e)
-        {
-            using (var connection = Connection.getConnection())
-            {
-                double codUser;
-                double.TryParse(codText.Text, out codUser);
-                connection.Open();
-                string query = "DELETE FROM cadastros WHERE coduser = @coduser";
-                using (var command = new NpgsqlCommand(query, connection))
-                {
-                    
-                    command.Parameters.AddWithValue("@coduser", codUser);
-                    command.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Usuário deletado com sucesso!");
-                RegistrarLog("DELETE", codUser, null);
-                registerTable.Refresh();
-
             }
         }
 
@@ -186,22 +235,5 @@ namespace TesteCervantes
                 MessageBox.Show("Não há campos para limpar.");
             }
         }
-
-        private void RegistrarLog(string acao, double codUser, string nome)
-        {
-            using (var connection = Connection.getConnection())
-            {
-                connection.Open();
-                string query = "INSERT INTO logs (acao, coduser, nome) VALUES (@acao, @coduser, @nome)";
-                using (var command = new NpgsqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@acao", acao);
-                    command.Parameters.AddWithValue("@coduser", codUser);
-                    command.Parameters.AddWithValue("@nome", nome ?? (object)DBNull.Value);
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
     }
 }

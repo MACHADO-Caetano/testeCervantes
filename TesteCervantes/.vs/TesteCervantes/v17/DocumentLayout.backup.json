@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\GIT\\cervantes\\TesteCervantes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TesteCervantes\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{7448DE9E-C99C-4189-91AE-D632316C0E91}|TesteCervantes\\TesteCervantes.csproj|c:\\git\\cervantes\\testecervantes\\testecervantes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7448DE9E-C99C-4189-91AE-D632316C0E91}|TesteCervantes\\TesteCervantes.csproj|solutionrelative:testecervantes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:TesteCervantes\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7448DE9E-C99C-4189-91AE-D632316C0E91}|TesteCervantes\\TesteCervantes.csproj|c:\\git\\cervantes\\testecervantes\\testecervantes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7448DE9E-C99C-4189-91AE-D632316C0E91}|TesteCervantes\\TesteCervantes.csproj|solutionrelative:testecervantes\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,37 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs",
               "RelativeDocumentMoniker": "TesteCervantes\\Form1.cs",
               "ToolTip": "C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs",
               "RelativeToolTip": "TesteCervantes\\Form1.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAAwFoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAkwM8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T00:05:47.768Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs",
               "RelativeDocumentMoniker": "TesteCervantes\\Form1.cs",
               "ToolTip": "C:\\GIT\\cervantes\\TesteCervantes\\TesteCervantes\\Form1.cs [Design]",
               "RelativeToolTip": "TesteCervantes\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T18:20:51.441Z",
+              "WhenOpened": "2025-05-19T23:31:19.454Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             }
           ]
         }
