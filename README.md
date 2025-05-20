@@ -13,7 +13,7 @@ O banco de dados em Postgresql, possui algumas validações para que o mesmo pos
 
 Fora utilizado triggers, sendo:
 
-- log_cadastros_changed: esta que envia para uma tabela, os registos das funções na tela de cadastros, registrando qual função do CRUD foi realizada, qual cadastro foi alterado e por quem;
+- log_cadastros_changed: esta que envia para uma tabela, os registos das funções na tela de cadastros, registrando qual função do CRUD foi realizada, qual cadastro foi alterado;
 -  Constraint: Utilizei uma constraint na tabela cadastros, que valida o dado de codUser, para que o mesmo não seja instanciado no banco igual a 0 ou inferior a este.
 
 Na interface, foi trabalhado responsividade, e também um layout mais receptivo ao usuário, também foi pensado nas respostas a cada validação e a cada função, retornando sempre que possível uma mensagem afirmativa ou negativa quanto à usabilidade da tela de cadastros.
