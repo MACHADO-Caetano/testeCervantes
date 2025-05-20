@@ -11,7 +11,7 @@ O banco de dados em Postgresql, possui algumas validações para que o mesmo pos
 - Tabela principal de cadastros;
 - Tabela de logs;
 
-Utilizando triggers para realizar as tais. Fora utilizado triggers, sendo:
+Fora utilizado triggers, sendo:
 
 - log_cadastros_changed: esta que envia para uma tabela, os registos das funções na tela de cadastros, registrando qual função do CRUD foi realizada, qual cadastro foi alterado e por quem;
 -  Constraint: Utilizei uma constraint na tabela cadastros, que valida o dado de codUser, para que o mesmo não seja instanciado no banco igual a 0 ou inferior a este.
